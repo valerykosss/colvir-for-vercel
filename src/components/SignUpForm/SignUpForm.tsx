@@ -60,7 +60,7 @@ const SignUpForm = () => {
     <div className={styles.formContainer}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <div className={styles.formGroup}>
-            <label htmlFor="login" className={styles.label}>Логин</label>
+            <label htmlFor="login" className={styles.label}>Login</label>
             <Controller
               name="login"
               control={control}
@@ -80,7 +80,7 @@ const SignUpForm = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="password" className={styles.label}>Пароль</label>
+            <label htmlFor="password" className={styles.label}>Password</label>
             <Controller
               name="password"
               control={control}
@@ -100,7 +100,7 @@ const SignUpForm = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="confirmPassword" className={styles.label}>Повторите пароль</label>
+            <label htmlFor="confirmPassword" className={styles.label}>Repeat the password</label>
             <Controller
               name="confirmPassword"
               control={control}

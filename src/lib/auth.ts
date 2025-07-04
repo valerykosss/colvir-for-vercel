@@ -23,7 +23,7 @@ export const authOptions: NextAuthOptions = {
             async authorize(credentials) {
                 try {
                     if(!credentials?.login || !credentials?.password) {
-                    throw new Error("Не указан логин или пароль");
+                    throw new Error("Username or password is not specified");
                     }
 
                     const existingUser = await db.user.findUnique({
@@ -31,13 +31,13 @@ export const authOptions: NextAuthOptions = {
                     });
                     
                     if(!existingUser) {
-                    throw new Error("Пользователь не найден");
+                    throw new Error("The user was not found");
                     }
 
                     const passwordMatch = await compare(credentials.password, existingUser.password);
 
                     if (!passwordMatch) {
-                    throw new Error("Неверный пароль");
+                    throw new Error("Invalid password");
                     }
 
                     return {

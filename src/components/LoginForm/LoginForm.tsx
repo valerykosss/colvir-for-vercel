@@ -63,7 +63,7 @@ export function LoginForm() {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="password" className={styles.label}>Пароль</label>
+          <label htmlFor="password" className={styles.label}>Password</label>
           <input
             id="password"
             type="password"
