@@ -1,3 +1,5 @@
+import 'dotenv/config';
+console.log('DATABASE_URL:', process.env.DATABASE_URL);
 import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
