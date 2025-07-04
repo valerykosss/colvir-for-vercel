@@ -10,7 +10,8 @@ export function CreateCertificateForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     const fullName = formData.get('fullName') as string;
     const courseName = formData.get('courseName') as string;
@@ -43,21 +44,15 @@ export function CreateCertificateForm() {
       });
 
       if (!response.ok) {
-        let errorMessage = 'Unknown error';
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData?.error || errorMessage;
-        } catch {
-          console.warn('Could not parse error response');
-        }
-        throw new Error(errorMessage);
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Unknown error');
       }
 
       const result = await response.json();
       setCreatedCertificateId(result.id);
 
       toast.success('Certificate created successfully!');
-      e.currentTarget.reset();
+      form.reset();
     } catch (err: unknown) {
       if (err instanceof Error) {
         toast.error(`Error: ${err.message}`);
