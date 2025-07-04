@@ -59,3 +59,12 @@
 .helpText strong {
   font-weight: 600;
 }
+.viewLinkContainer {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.viewLink {
+  color: #06509E;
+  font-size: 1rem;
+}
