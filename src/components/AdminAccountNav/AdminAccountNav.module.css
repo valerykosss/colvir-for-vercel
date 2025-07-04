@@ -1,0 +1,13 @@
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.link {
+    color: #06509E;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+}
