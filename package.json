@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && npx prisma migrate deploy",
+    "seed": "ts-node prisma/seed.ts",
     "postinstall": "prisma generate --no-engine",
     "start": "next start",
     "lint": "next lint"
