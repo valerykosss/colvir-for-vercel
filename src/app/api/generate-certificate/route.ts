@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { PDFDocument, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { db } from '@/lib/db';
