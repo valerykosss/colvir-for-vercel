@@ -143,7 +143,8 @@ export async function GET(request: Request) {
     const pdfDoc = await PDFDocument.create();
     pdfDoc.registerFontkit(fontkit);
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || request.headers.get('origin') || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? request.headers.get('origin');
+    if (!baseUrl) throw new Error('Base URL is not defined');
     const fontUrl = new URL('/fonts/Roboto-Regular.ttf', baseUrl).toString();
     const customFont = await loadFont(pdfDoc, fontUrl);
 
