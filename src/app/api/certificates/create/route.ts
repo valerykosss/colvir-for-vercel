@@ -18,7 +18,14 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(certificate, { status: 201 });
+    return NextResponse.json({
+      message: 'Certificate created',
+      id: certificate.id,
+      fullName: certificate.fullName,
+      courseName: certificate.courseName,
+      createdAt: certificate.createdAt,
+    }, { status: 201 });
+
   } catch (error) {
     console.error('Error creating certificate:', error);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });

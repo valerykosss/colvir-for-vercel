@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 
 export function CreateCertificateForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [createdCertificateId, setCreatedCertificateId] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,24 +43,35 @@ export function CreateCertificateForm() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Unknown error');
+        let errorMessage = 'Unknown error';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData?.error || errorMessage;
+        } catch {
+          console.warn('Could not parse error response');
+        }
+        throw new Error(errorMessage);
       }
+
+      const result = await response.json();
+      setCreatedCertificateId(result.id);
 
       toast.success('Certificate created successfully!');
       e.currentTarget.reset();
     } catch (err: unknown) {
       if (err instanceof Error) {
         toast.error(`Error: ${err.message}`);
-        console.error(err);
       } else {
         toast.error('An unexpected error occurred');
-        console.error('Unknown error:', err);
       }
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const certificateUrl = createdCertificateId
+    ? `/certificate/?id=${createdCertificateId}`
+    : null;
 
   return (
     <div className={styles.formContainer}>
@@ -111,6 +123,19 @@ export function CreateCertificateForm() {
           </button>
         </div>
       </form>
+
+      {certificateUrl && (
+        <div className={styles.viewLinkContainer}>
+          <a
+            href={certificateUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.viewLink}
+          >
+            View created certificate
+          </a>
+        </div>
+      )}
     </div>
   );
 }

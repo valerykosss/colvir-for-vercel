@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import styles from './LoginForm.module.css';
 
 const FormSchema = z.object({
-  login: z.string().min(1, 'Логин обязателен'),
+  login: z.string().min(1, 'Login is required'),
   password: z
     .string()
     .min(1, 'A password is required')
@@ -49,7 +49,7 @@ export function LoginForm() {
     <div className={styles.formContainer}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.formGroup}>
-          <label htmlFor="login" className={styles.label}>Логин</label>
+          <label htmlFor="login" className={styles.label}>Login</label>
           <input
             id="login"
             type="text"
