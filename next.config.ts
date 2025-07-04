@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+console.log('PRISMA_DATABASE_URL in next.config.js =', process.env.PRISMA_DATABASE_URL);
+
 const nextConfig: NextConfig = {
    experimental: {
     serverComponentsExternalPackages: ['pdf-lib', '@pdf-lib/fontkit'],
