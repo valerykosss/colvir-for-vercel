@@ -12,7 +12,7 @@ export default function AdminAccountNav() {
             Admin Panel
         </Link>
 
-        <Link href="/admin-generate-certificate">
+        <Link className={styles.link} href="/admin-generate-certificate">
             Certificates Generation
         </Link>
         <button 
