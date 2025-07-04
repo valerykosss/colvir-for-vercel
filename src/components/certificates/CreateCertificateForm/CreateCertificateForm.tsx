@@ -48,9 +48,14 @@ export function CreateCertificateForm() {
 
       toast.success('Certificate created successfully!');
       e.currentTarget.reset();
-    } catch (err: any) {
-      toast.error(`Error: ${err.message}`);
-      console.error(err);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        toast.error(`Error: ${err.message}`);
+        console.error(err);
+      } else {
+        toast.error('An unexpected error occurred');
+        console.error('Unknown error:', err);
+      }
     } finally {
       setIsSubmitting(false);
     }
