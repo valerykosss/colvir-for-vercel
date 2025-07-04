@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { PDFDocument, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { db } from '@/lib/db';
@@ -144,7 +143,8 @@ export async function GET(request: Request) {
     const pdfDoc = await PDFDocument.create();
     pdfDoc.registerFontkit(fontkit);
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? request.headers.get('origin');
+    console.log('ENV BASE_URL:', process.env.BASE_URL);
+    const baseUrl = process.env.BASE_URL ?? request.headers.get('origin');
     if (!baseUrl) throw new Error('Base URL is not defined');
     const fontUrl = new URL('/fonts/Roboto-Regular.ttf', baseUrl).toString();
     const customFont = await loadFont(pdfDoc, fontUrl);
