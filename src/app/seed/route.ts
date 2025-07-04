@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { exec } from 'child_process';
 
-export async function GET() {
-  return new Promise((resolve) => {
+export async function GET(): Promise<Response> {
+  return new Promise<Response>((resolve) => {
     exec('npx ts-node prisma/seed.ts', (err, stdout, stderr) => {
       if (err) {
         console.error(stderr);
