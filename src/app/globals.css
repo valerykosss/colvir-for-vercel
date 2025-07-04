@@ -1,0 +1,33 @@
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  background-color: #06509E;
+  color: white;
+  border: none;
+  border-radius: 0.65rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: fit-content;
+}
+
+button:hover {
+  background-color: rgba(6, 80, 158, 0.9);
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+main {
+  padding-top: 80px;
+  min-height: calc(100vh - 80px);
+}
+
+* {
+  font-family: inherit;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+}

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Certificate" ALTER COLUMN "code" DROP NOT NULL,
+ALTER COLUMN "oldId" DROP NOT NULL;

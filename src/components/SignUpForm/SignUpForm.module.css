@@ -1,0 +1,82 @@
+.formContainer {
+  background-color: rgba(6, 80, 158, 0.07);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 600px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #06509E;
+  box-shadow: 0 0 0 2px rgba(6, 80, 158, 0.2);
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.dividerText {
+  padding: 0 1rem;
+}
+
+.loginPrompt {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.loginLink {
+  color: #06509E;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}

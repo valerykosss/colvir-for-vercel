@@ -1,0 +1,33 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+}
+
+.title {
+  text-align: center;
+  color: #06509E;
+}
+
+.loadingText {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.pdfViewer {
+  width: 100%;
+  max-width: 80rem;
+  height: 80vh;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  margin-bottom: 1rem;
+}
+
+.button {
+  margin-bottom: 1rem;
+}
